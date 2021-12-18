@@ -25,11 +25,14 @@ class ResultsView(generic.DetailView):
     template_name = 'polls/results.html'
 
 
+
 class AllResultsView(generic.ListView):
     model = Question
     template_name = 'polls/all_results.html'
     context_object_name = 'latest_question_list'
 
+    def get_queryset(self):
+        return Question.objects.order_by('-pub_date')[:5]
 
 # def index(request):
 #     # return HttpResponse("Hello world, You're at the polls index.")

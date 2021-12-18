@@ -1,6 +1,7 @@
 {% extends 'blog/base.html' %}
 
 {% block content %}
+<div class="blog_delete">
     <h1>New post</h1>
     <form method="POST" class="post-form">
         {% csrf_token %}
@@ -8,4 +9,5 @@
         <button type="delete" class="save btna btn-default">Delete
         </button>
     </form>
+</div>
 {% endblock%}
