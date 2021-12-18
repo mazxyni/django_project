@@ -5,23 +5,30 @@
 {% endblock %}
 
 {% block content %}
+<div class="content container">
+    <div class="row">
+        <div class="col">
 
-{% load static %}
-    <link rel="stylesheet" href="http://dallajin.dost.kr/polls_design.css">
+            {% load static %}
+                <link rel="stylesheet" href="http://dallajin.dost.kr/polls_design.css">
 
-    {% if latest_question_list %}
-    {% for question in latest_question_list %}
+                {% if latest_question_list %}
+                {% for question in latest_question_list %}
 
-    <ul>
-        <b>
-        {{question.question_text}}
-        </b>
+                <ul>
+                    <b>
+                    {{question.question_text}}
+                    </b>
 
-        {% for choice in question.choice_set.all %}
-            <li>{{choice.choice_text}} -- {{choice.votes}} vote{{choice.votes | pluralize }}</li>
-        {% endfor %}
-    </ul>
+                    {% for choice in question.choice_set.all %}
+                        <li>{{choice.choice_text}} -- {{choice.votes}} vote{{choice.votes | pluralize }}</li>
+                    {% endfor %}
+                </ul>
 
-    {% endfor %}
-    {% endif %}
+                {% endfor %}
+                {% endif %}
+
+        </div>
+    </div>
+</div>
 {% endblock %}

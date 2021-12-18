@@ -4,24 +4,31 @@
     Polls Add
 {% endblock %}
 
+
 {% block content %}
+<div class="content container">
+    <div class="row">
+        <div class="col">
 
-{% load static %}
-    <link rel="stylesheet" href="http://dallajin.dost.kr/polls_design.css">
+            {% load static %}
+                <link rel="stylesheet" href="http://dallajin.dost.kr/polls_design.css">
 
-    <h1>{{question.question_text}}</h1>
-    {% if error_message %} <p><strong>{{error_message}}</strong></p> {% endif %}
+                <h1>{{question.question_text}}</h1>
+                {% if error_message %} <p><strong>{{error_message}}</strong></p> {% endif %}
 
-    <form action="{% url 'polls:vote' question.id %}" method="post" >
-        {% csrf_token %}
-        {% for choice in question.choice_set.all %}
-            <input type="radio" name="choice" id="choice{{forloop.counter}}" value="{{choice.id}}">
-            <label for="choice{{forloop.counter}}">{{choice.choice_text}}</label><br>
-        {% endfor %}
+                <form action="{% url 'polls:vote' question.id %}" method="post" >
+                    {% csrf_token %}
+                    {% for choice in question.choice_set.all %}
+                        <input type="radio" name="choice" id="choice{{forloop.counter}}" value="{{choice.id}}">
+                        <label for="choice{{forloop.counter}}">{{choice.choice_text}}</label><br>
+                    {% endfor %}
 
-        <input type="submit" value="Vote">
-    </form>
+                    <input type="submit" value="Vote">
+                </form>
 
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 <!--<!DOCTYPE html>-->

@@ -5,19 +5,25 @@
 {% endblock %}
 
 {% block content %}
+<div class="content container">
+    <div class="row">
+        <div class="col">
 
-{% load static %}
-    <link rel="stylesheet" href="http://dallajin.dost.kr/polls_design.css">
+            {% load static %}
+                <link rel="stylesheet" href="http://dallajin.dost.kr/polls_design.css">
 
-<h1>{{question.question_text}}</h1>
-<ul>
-    {% for choice in question.choice_set.all %}
-    <li>{{choice.choice_text}} -- {{choice.votes}} vote{{choice.votes | pluralize }}</li>
-    {% endfor %}
-</ul>
-<a href = "{% url 'polls:detail' question.id %}"> Vote again? </a>
+            <h1>{{question.question_text}}</h1>
+            <ul>
+                {% for choice in question.choice_set.all %}
+                <li>{{choice.choice_text}} -- {{choice.votes}} vote{{choice.votes | pluralize }}</li>
+                {% endfor %}
+            </ul>
+            <a href = "{% url 'polls:detail' question.id %}"> Vote again? </a>
 
 
+        </div>
+    </div>
+</div>
 {% endblock %}
 
 <!--<!DOCTYPE html>-->

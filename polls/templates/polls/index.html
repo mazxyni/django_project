@@ -4,25 +4,32 @@
     Polls Add
 {% endblock %}
 
+
 {% block content %}
+<div class="content container">
+    <div class="row">
+        <div class="col">
 
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
-    <link rel="stylesheet" href="http://dallajin.dost.kr/polls_design.css">
+            {% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'polls/style.css' %}">
 
-    {% if latest_question_list %}
-    <ul>
-        {% for question in latest_question_list %}
-            <li><a href="{% url 'polls:detail' question.id %}">{{question.question_text}}</a></li>
-        {% endfor %}
-    </ul>
-    <a class="al" href="{% url 'polls:AllResults' %}">모든 설문 결과 보기</a>
+            {% if latest_question_list %}
+            <ul>
+                {% for question in latest_question_list %}
+                    <li><a href="{% url 'polls:detail' question.id %}">{{question.question_text}}</a></li>
+                {% endfor %}
+            </ul>
+            <a class="al" href="{% url 'polls:AllResults' %}">모든 설문 결과 보기</a>
 
-    {% else %}
-    <p>No polls are avilable.</p>
-    {% endif %}
+            {% else %}
+            <p>No polls are avilable.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
 
 {% endblock %}
+
 
 <!--<!DOCTYPE html>-->
 <!--<html lang="en">-->

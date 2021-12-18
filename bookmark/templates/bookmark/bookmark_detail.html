@@ -5,16 +5,22 @@
 {% endblock %}
 
 {% block content %}
+    <div class="content container">
+    <div class="row">
+        <div class="col">
 
-    {% load static %}
+            {% load static %}
 
-<div>
-{{object.site_name}}</br>
-{{object.url}}
+            <div>
+            {{object.site_name}}</br>
+            {{object.url}}
+            </div>
+            <br>
+            <br>
+                <td class="bm_modify"><a href="{% url 'bookmark:update' pk=bookmark.id %}" class="btn btn-success btn-sm">Modify</a></td>
+                <td class="bm_delete"><a href="{% url 'bookmark:delete' pk=bookmark.id %}" class="btn btn-danger btn-sm">Delete</a></td>
+
+        </div>
+    </div>
 </div>
-<br>
-<br>
-    <td class="bm_modify"><a href="{% url 'bookmark:update' pk=bookmark.id %}" class="btn btn-success btn-sm">Modify</a></td>
-    <td class="bm_delete"><a href="{% url 'bookmark:delete' pk=bookmark.id %}" class="btn btn-danger btn-sm">Delete</a></td>
-
 {% endblock%}

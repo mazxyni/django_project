@@ -2,9 +2,17 @@
 
 {% block title %} home.html{% endblock %}
 {% block content %}
-    {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}">
-    <link rel="stylesheet" href="http://dallajin.dost.kr/home_design.css">
-    <h4>Django Project</h4>
-    <p>Django Project에 오신 것을 환영합니다.</p>
+
+<div class="content container">
+    <div class="row">
+        <div class="col">
+
+            {% load static %}
+            <link rel="stylesheet" type="text/css" href="{% static 'home/style.css' %}">
+            <h4>Django Project</h4>
+            <p>Django Project에 오신 것을 환영합니다.</p>
+
+        </div>
+    </div>
+</div>
 {% endblock %}
