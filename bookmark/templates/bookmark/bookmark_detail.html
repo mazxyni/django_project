@@ -1,8 +1,20 @@
 {% extends 'base.html' %}
 
-{% block title %} Detail {% endblock %}
+{% block title %}
+    Detail
+{% endblock %}
 
 {% block content %}
+
+    {% load static %}
+
+<div>
 {{object.site_name}}</br>
 {{object.url}}
+</div>
+<br>
+<br>
+    <td class="bm_modify"><a href="{% url 'bookmark:update' pk=bookmark.id %}" class="btn btn-success btn-sm">Modify</a></td>
+    <td class="bm_delete"><a href="{% url 'bookmark:delete' pk=bookmark.id %}" class="btn btn-danger btn-sm">Delete</a></td>
+
 {% endblock%}

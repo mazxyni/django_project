@@ -6,6 +6,7 @@ from django.views import generic
 
 #Create your views here.
 
+
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
     context_object_name = 'latest_question_list'
@@ -13,13 +14,22 @@ class IndexView(generic.ListView):
     def get_queryset(self):
         return Question.objects.order_by('-pub_date')[:5]
 
+
 class DetailView(generic.DetailView):
     model = Question
     template_name = 'polls/detail.html'
 
+
 class ResultsView(generic.DetailView):
     model = Question
     template_name = 'polls/results.html'
+
+
+class AllResultsView(generic.ListView):
+    model = Question
+    template_name = 'polls/all_results.html'
+    context_object_name = 'latest_question_list'
+
 
 # def index(request):
 #     # return HttpResponse("Hello world, You're at the polls index.")
@@ -39,6 +49,7 @@ class ResultsView(generic.DetailView):
 #     # return response
 #     question = get_object_or_404(Question, pk=question_id)
 #     return render(request, 'polls/results.html', {'question':question})
+
 
 def vote(request, question_id):
     # return HttpResponse("You're voting on question %s" %question_id)

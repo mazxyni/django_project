@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Polls Add
+{% endblock %}
+
+{% block content %}
+
+{% load static %}
+    <link rel="stylesheet" href="http://dallajin.dost.kr/polls_design.css">
+
+    {% if latest_question_list %}
+    {% for question in latest_question_list %}
+
+    <ul>
+        <b>
+        {{question.question_text}}
+        </b>
+
+        {% for choice in question.choice_set.all %}
+            <li>{{choice.choice_text}} -- {{choice.votes}} vote{{choice.votes | pluralize }}</li>
+        {% endfor %}
+    </ul>
+
+    {% endfor %}
+    {% endif %}
+{% endblock %}
