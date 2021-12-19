@@ -4,7 +4,7 @@ from .models import Post, Comment
 
 def min_length_5_validator(value):
     if len(value) < 5:
-        raise forms.ValidationError('title은 5글자 이상 입력해주세요')
+        raise forms.ValidationError('제목은 5글자 이상 입력해주세요')
 
 
 class PostForm(forms.ModelForm):

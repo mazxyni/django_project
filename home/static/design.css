@@ -482,7 +482,7 @@ a:hover {
       border-radius: 28px;
       background: #000; }
   .container.home {
-    background: url(http://mazxyni.pythonanywhere.com/static/home/images/background.jpg);
+    background: url(/static/home/images/background.jpg);
     background-size: cover;
     margin-top: -80px;
     height: 100%;

@@ -7,7 +7,7 @@
 {% block content %}
 <div class="content container polls_results">
     <div class="row">
-        <div class="col">
+        <div class="col col-12">
 
             {% load static %}
                 <link rel="stylesheet" href="http://dallajin.dost.kr/polls_design.css">
@@ -20,7 +20,9 @@
             </ul>
             <a href = "{% url 'polls:detail' question.id %}"> Vote again? </a>
         </div>
-        <a href = "{% url 'polls:index' %}"> 목록 </a>
+        <div class="col-12">
+            <a href = "{% url 'polls:index' %}"> 목록 </a>
+        </div>
     </div>
 </div>
 {% endblock %}

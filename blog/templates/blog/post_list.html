@@ -11,8 +11,9 @@
             <a href="{% url 'blog:post_detail' pk=post.pk %}">Comments: {{post.approved_comments.count}}</a>
             <p>{{ post.text|linebreaksbr }}</p>
     </div>
-    {% empty %}
-        <div>요청하신 Post가 존재하지 않습니다. </div>
-    {% endfor %}
 </div>
+    {% empty %}
+        <div> 요청하신 Post가 존재하지 않습니다. </div>
+    {% endfor %}
+
 {% endblock %}
